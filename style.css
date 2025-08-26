@@ -1,0 +1,81 @@
+/* Minimal Apple Typing Flow CSS */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f7;
+  height: 100vh;
+  overflow: visible; /* Allow ball to be visible */
+  /* Remove flex centering to let fixed elements position freely */
+}
+
+.title {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(60, 60, 67, 0.6); /* slick Apple-style gray */
+  letter-spacing: 1px;
+  z-index: 100;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  text-transform: uppercase;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.container {
+  position: relative;
+  width: 90vw;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  overflow: visible; /* Make sure ball isn't clipped */
+  margin: 0 auto;
+  top: 40%; /* vertically center the typing line */
+  position: relative;
+}
+
+.words-container {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.word {
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  color: rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.word.current {
+  color: black;
+  font-weight: 500;
+  transform: scale(1.1);
+}
+
+.progress-container {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px; /* clearly above bottom */
+  width: 60%;
+  height: 8px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 20px; /* stretched rounded rectangle */
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00ffcc, #007aff);
+  border-radius: 20px;
+  transition: width 0.6s ease; /* smooth fill */
+}
